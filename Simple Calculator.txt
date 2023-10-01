@@ -1,0 +1,50 @@
+import java.util.Scanner;
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Simple Calculator");
+        System.out.print("Enter first number: ");
+        double n1 = scan.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double n2 = scan.nextDouble();
+
+        System.out.println("Select an operation:");
+        System.out.println("1. Add (+)");
+        System.out.println("2. Subtract (-)");
+        System.out.println("3. Multiply (*)");
+        System.out.println("4. Division (/)");
+
+        int select= scan.nextInt();
+
+        double out = 0;
+
+        switch (select) {
+            case 1:
+                out = n1 + n2;
+                break;
+            case 2:
+               out = n1 - n2;
+                break;
+            case 3:
+               out = n1 * n2;
+                break;
+            case 4:
+                if (n2 != 0) {
+                  out = n1 / n2;
+                } else {
+                    System.out.println("Error: Division by zero.");
+                    System.exit(1);
+                }
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                System.exit(1);
+        }
+
+        System.out.println("Result:" + out);
+
+        scan.close();
+    }
+}
